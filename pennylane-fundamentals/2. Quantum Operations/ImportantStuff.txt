@@ -1,0 +1,16 @@
+Pennylane initializes qubits to 0. So in order to prepare your state you 
+give an array 1x2^n with coefficients. For example  ->
+qp.StatePrep(state, wires=range(2)) where state = [1/2, 1/2, 1/2, 1/2]
+If state is not normalized just put normalized=True to the arguement list.
+If you want to apply an unitary gate that is not implemented u can always
+apply with via using qp.QubitUnitary(U, wires=[])
+If it is controlled unitaries then:
+1.If it is an implemented unitary we can use 
+qp.ctrl(U, control=(), control_values=())(angle, wires=[]) again ctrl acts
+as wrapper control arguement specify which qubit is the control control_values
+specify when unitary will act according to control being equal to control_value
+2.If it is not an implemented unitary gate we can use
+qp.ControlledQubitUnitary(U, wires=[], control_values=())
+This time there is no control arguement we understand control from wires.
+To get an inverse of an unitary gate we can use
+qp.adjoint(gate)(angle, wires) again acting as wrapper.

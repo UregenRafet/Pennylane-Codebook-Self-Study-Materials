@@ -1,0 +1,13 @@
+Circuits created by python functions.
+Qubits = wires
+qp.gate1(parameters, wires) If gate requires parameter if not only wires as an arguement.
+For pennylane to work we need to specify the device like dev = qp.device("default.qubit", wires = 2)
+3 Important Devices
+1. "default.qubit" -> Most basic one for noiseless gates
+2. "lightning.qubit" -> Faster but still for noiseless gates
+3. "default.mixed" -> For noisy gates
+We decorate the function with our device. For example ->
+@qp.qnode(dev)
+def my_first_quantum_function(theta)
+To return state coefficients -> return qp.state()
+To draw the circuit we use the wrapper qp.draw. Example usage -> qp.draw(full_circuit)(theta,phi)

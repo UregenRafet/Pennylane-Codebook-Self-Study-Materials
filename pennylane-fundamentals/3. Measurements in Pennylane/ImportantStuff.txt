@@ -1,0 +1,28 @@
+Whole chapter is dedicated to measurements.
+1. Samples
+We can get the measurement of every shot as a list with 
+return qp.sample() with specifying shot count in device with an extra 
+argument shots=
+We can also sample from a specific observable with just putting the 
+observable inside qp.sample() with selecting which qubit or qubits
+it will act on.
+2. Counts
+Getting sample 1 by 1 in a form of list is quite a handful when shot count
+is big enough. Thus, qp.counts() gives a dictionary with all possible outcomes
+as a key and their counts as a value. 
+Same as qp.sample() we can put a observable inside.
+3. Probabilities
+Same as counts and samples however here we don't need shots argument.
+If we want to put an observable we need to put op= since first argument it
+expects is wires=
+4. Expectation Values
+It is measured with qp.expval() and inside we put the observable
+Extra information that intrigued me:
+Part of what’s super cool about PennyLane is that it interfaces natively
+with several classical and quantum libraries. For example, if you have
+a machine learning model in PyTorch you can integrate it with PennyLane.
+How? When your QNode receives input data or parameters of a specific
+type, such as Torch tensors, it knows to output a Torch tensor instead
+of an array. So you just need to make sure that the dimensions of the
+inputs and outputs match the corresponding layers in your classical 
+model and you don’t need to worry about the output type!
