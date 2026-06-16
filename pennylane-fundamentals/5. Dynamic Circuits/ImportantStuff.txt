@@ -1,0 +1,5 @@
+I've learnt dynamic circuits. We can measure 
+not only at the end but also in the middle of the
+circuit. With that information, we can conditionally
+apply gates. We can even discard unwanted counts
+with postselect parameter.
